@@ -33,9 +33,10 @@ class Point2D{
         $this->y = $y;
     }
     public function distance(Point2D $point){
-        return sqrt(abs(($point->x - $this->x)*($point->x - $this->x))+abs(($point->y - $this->y)*($point->y - $this->y)));
+            $distance = sqrt(pow($this->x - $point->x, 2) + pow($this->y - $point->y, 2));
+            return $distance;
+        }
     }
-}
 $point1 = new Point2D(1,4);
 $point2 = new Point2D(0,7);
 echo "<br><br>Bài 2:<br>";
@@ -83,7 +84,7 @@ echo "Max: " . $Array->Max() ;
 // Tạo một lớp DongHo với các thuộc tính giờ, phút và giây.
 // Tạo phương thức để hiển thị thời gian dưới định dạng "HH:MM:SS" và diễn tả chức năng tăng giây.
 class Clock{
-    protected $hour, $minute, $second;
+    private $hour, $minute, $second;
     public function __construct($hour, $minute, $second){
         $this->hour = $hour;
         $this->minute = $minute;
@@ -119,12 +120,12 @@ $clock->show();
 // Tạo một lớp SinhVien với các thuộc tính mã số, họ và tên.
 // Tạo lớp DanhSachSinhVien với các phương thức thêm sinh viên mới và hiển thị danh sách sinh viên.
 class Student{
-    protected $code, $fullName, $list;
+    private $id, $fullName, $list;
     public function __construct(){
         $this->list = [];
     }
-    public function addNewStudent($code, $fullName){
-        $this->list[$code] = $fullName; 
+    public function addNewStudent($id, $fullName){
+        $this->list[$id] = $fullName; 
     }
     public function showList(){
         return $this->list;
@@ -142,8 +143,8 @@ foreach($student->showList() as $key=>$value)
 // Tạo một lớp XeHoi với các thuộc tính là hãng xe, màu sắc và năm sản xuất.
 // Tạo phương thức để hiển thị thông tin đầy đủ của xe.
 class Car{
-    protected $brand, $color, $year;
-    protected $list;
+    private $brand, $color, $year;
+    private $list;
     public function __construct($brand, $color, $year){
         $this->brand = $brand;
         $this->color = $color;
@@ -169,7 +170,7 @@ echo "Year: " . $car->year();
 // Tạo một lớp PhanSo với các thuộc tính tử số và mẫu số.
 // Tạo các phương thức để thực hiện các phép toán cộng, trừ, nhân và chia giữa các phân số.
 class Fraction{
-    protected $numerator, $denominator;
+    private $numerator, $denominator;
     public function __construct($numerator, $denominator){
         $this->numerator = $numerator;
         $this->denominator = $denominator;
@@ -274,7 +275,7 @@ else echo "Division: " . $result[0] . "/" . $result[1];
 // Tạo một lớp Nguoi với các thuộc tính tên, tuổi và địa chỉ.
 // Tạo phương thức để hiển thị thông tin người.
 class Person{
-    protected $name, $age, $address;
+    private $name, $age, $address;
     
     public function __construct($name, $age, $address){
         $this->name = $name;
@@ -301,7 +302,7 @@ echo "Address: " . $person->address();
 // Tạo một lớp SanPham với các thuộc tính tên, giá và mô tả.
 // Tạo phương thức để hiển thị thông tin chi tiết của sản phẩm.
 class Product{
-    protected $name, $price, $description;
+    private $name, $price, $description;
     public function __construct($name, $price, $description){
         $this->name = $name;
         $this->price = $price;
@@ -326,7 +327,7 @@ echo "Description: " . $prod->description();
 // Tạo một lớp DatPhong voi các thuộc tính tên, ngày đến và số đêm ở lại.
 // Tạo phương thức để tính tổng số tiền cần thanh toán dựa trên giá phòng.
 class BookRoom{
-    protected $name, $arriveDay, $numNight, $price;
+    private $name, $arriveDay, $numNight, $price;
     public function __construct($name, $arriveDay, $numNight){
         $this->name = $name;
         $this->arriveDay = $arriveDay;
